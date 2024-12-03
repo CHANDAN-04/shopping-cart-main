@@ -1,0 +1,35 @@
+.head{
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+  max-width: fit-content;
+  background-color: black;
+  height: 100px;
+  color: white;
+  align-items: center;
+}
+
+.navigate{
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+}
+
+.navigate ul{
+  display: flex;
+  width: 100%;
+  list-style: none;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.navigate ul li a{
+  color: white;
+  text-decoration: none;
+  transition: text-decoration 0.5s ease-in 0.2s;
+  position: relative;
+}
+
+.navigate ul a:hover{
+  text-decoration: underline;
+}

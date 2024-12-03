@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`About Component > renders the about component correctly 1`] = `
+<div>
+  <div
+    class="_about_698222"
+  >
+    <h1>
+      This is a fictional store and none of the products displayed here exist.
+    </h1>
+    <p>
+      Products' information and images: Fake Store API.
+    </p>
+    <p>
+      darshan019: 
+      <a
+        href="https://github.com/darshan019"
+        target="_blank"
+      >
+        Github
+      </a>
+    </p>
+  </div>
+</div>
+`;

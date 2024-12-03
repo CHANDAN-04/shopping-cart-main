@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+
+@font-face {
+  font-family: poppins;
+  src: url(./assets/Poppins-Medium.ttf);
+}
+
+body{
+  max-width: 100%;
+  min-width: 800px;
+  min-height: 110vh;
+  max-height: fit-content;
+  overflow: auto;
+}
