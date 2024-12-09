@@ -1,14 +1,20 @@
 import React from "react";
 import styles from "./css/cart.module.css";
+import { useId } from "react";
 
-export default function Cart({ cartItems, remove }) {
+export default function AdminReview({ addToProduct, newData, removeAd }) {
+	const sellClickHandler = (item) => {
+		console.log(item);
+		addToProduct(item);
+		removeAd(item.id);
+	};
 	return (
 		<div className={styles.cart}>
-			{cartItems.length > 0 ? (
-				cartItems.map((item) => {
+			{newData.length > 0 ? (
+				newData.map((item) => {
 					return (
 						<>
-							<div key={item.id} className={styles.card}>
+							<div key={useId()} className={styles.card}>
 								<img
 									className={styles["card-img"]}
 									src={item.image}
@@ -20,10 +26,12 @@ export default function Cart({ cartItems, remove }) {
 									<h4>No. of units: {item.count}</h4>
 									<h4>Total Cost: ${(item.count * item.price).toFixed(2)}</h4>
 									<button
-										onClick={() => remove(item.id)}
+										onClick={(e) => {
+											sellClickHandler(item);
+										}}
 										className={styles.remove}
 									>
-										REMOVE
+										SELL
 									</button>
 								</div>
 							</div>
@@ -31,7 +39,7 @@ export default function Cart({ cartItems, remove }) {
 					);
 				})
 			) : (
-				<h1>NO ITEMS PRESENT IN THE CART</h1>
+				<h1>NO ITEMS PRESENT</h1>
 			)}
 		</div>
 	);

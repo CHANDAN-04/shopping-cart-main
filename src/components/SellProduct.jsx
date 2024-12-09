@@ -2,8 +2,7 @@ import css from "./css/sell.module.css";
 import { v4 as newId } from "uuid";
 import { useRef } from "react";
 import useClothesData from "./useClothesData";
-const SellProduct = () => {
-	
+const SellProduct = ({ sendProductToAdmin, addToProduct }) => {
 	// const [Pcategory, setPcategory] = useState("");
 	// const [Pdescription, setPdescription] = useState("");
 	// const [Pimage, setPimage] = useState("");
@@ -17,12 +16,9 @@ const SellProduct = () => {
 	let Pname = useRef();
 	let Pquantity = useRef();
 
-
 	let title;
-/******  7ad4b6c7-27f8-4e33-b046-6f58e4c9a092  *******/
+	/******  7ad4b6c7-27f8-4e33-b046-6f58e4c9a092  *******/
 	let sellClickHandler = (e) => {
-
-
 		let id = newId();
 		let rating = { count: 0, rate: 0 };
 		title = Pname.current.value + " - " + Pquantity.current.value;
@@ -30,7 +26,16 @@ const SellProduct = () => {
 		let image = Pimage.current.value;
 		let price = Pprice.current.value;
 		let category = Pcategory.current.value;
-		useClothesData().upDateClothes({
+		sendProductToAdmin({
+			category: category,
+			description: description,
+			id: id,
+			image: image,
+			price: price,
+			rating: rating,
+			title: title,
+		});
+		addToProduct({
 			category: category,
 			description: description,
 			id: id,

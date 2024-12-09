@@ -8,17 +8,22 @@ import Cart from "./Cart";
 import Navigation from "./Navigation";
 import ErrorPage from "./Error";
 import SellProduct from "./SellProduct";
+import AdminReview from "./AdminReview";
 
 const Router = () => {
 	let {
 		totalData,
+		newData,
+		cartItems,
 		loading,
 		error,
 		addOrSub,
 		handleChange,
 		addToCart,
-		cartItems,
+		sendProductToAdmin,
 		remove,
+		removeAd,
+		addToProduct,
 	} = useClothesData();
 	let numOfItems = 0;
 	for (let i = 0; i < cartItems.length; i++) {
@@ -45,7 +50,25 @@ const Router = () => {
 					),
 				},
 				{ path: "about", element: <About /> },
-				{ path: "sell", element: <SellProduct newProduct /> },
+				{
+					path: "adminReview",
+					element: (
+						<AdminReview
+							addToProduct={addToProduct}
+							newData={newData}
+							removeAd={removeAd}
+						/>
+					),
+				},
+				{
+					path: "sell",
+					element: (
+						<SellProduct
+							addToProduct={addToProduct}
+							sendProductToAdmin={sendProductToAdmin}
+						/>
+					),
+				},
 				{
 					path: "cart",
 					element: <Cart cartItems={cartItems} remove={remove} />,
